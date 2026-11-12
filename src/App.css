@@ -1,0 +1,25 @@
+#root {
+  width: 100%;
+  margin: 0 auto;
+}
+
+header {
+  background-color: #e8eee4;
+  padding: 30px;
+  text-align: center;
+}
+
+header h1 {
+  color: #405943;
+}
+
+main {
+  padding: 30px;
+  min-height: 400px;
+}
+
+footer {
+  background-color: #e8eee4;
+  padding: 20px;
+  text-align: center;
+}
