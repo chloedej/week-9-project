@@ -1,32 +1,32 @@
-function RecipeCard({ recipe }) {
-    return (
-        <div className="recipe-card">
+// function RecipeCard({ recipe }) {
+//     return (
+//         <div className="recipe-card">
 
-            <img src={recipe.strMealThumb} 
-            alt={recipe.strMeal}
-            />
+//             <img src={recipe.strMealThumb} 
+//             alt={recipe.strMeal}
+//             />
 
-            <h3>{recipe.strMeal}</h3>
+//             <h3>{recipe.strMeal}</h3>
 
-            <p>Category: {recipe.strCategory}</p>
+//             <p>Category: {recipe.strCategory}</p>
 
-            <p>Cuisine: {recipe.strArea}</p>
+//             <p>Cuisine: {recipe.strArea}</p>
 
-            <p>
-                Recipe ID: {recipe.idMeal}
-            </p>
+//             <p>
+//                 Recipe ID: {recipe.idMeal}
+//             </p>
 
-            <a
-                href={`https://www.themealdb.com/meal/${recipe.idMeal}`}
-                target="_blank"
-                rel="noreferrer"
-            >
-                View Recipe
-            </a>
+//             <a
+//                 href={`https://www.themealdb.com/meal/${recipe.idMeal}`}
+//                 target="_blank"
+//                 rel="noreferrer"
+//             >
+//                 View Recipe
+//             </a>
 
-        </div>
-    );
-}
+//         </div>
+//     );
+// }
 
 
-export default RecipeCard;
+// export default RecipeCard;
