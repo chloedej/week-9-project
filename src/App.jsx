@@ -2,7 +2,7 @@ import './App.css'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import SearchBar from './components/SearchBar'
-import RecipeCard from './RecipeCard'
+import RecipeCard from './components/RecipeCard'
 
 function App() {
   return (
