@@ -24,3 +24,5 @@ function Stats({ meals }) {
         </div>
     );
 }
+
+export default Stats;

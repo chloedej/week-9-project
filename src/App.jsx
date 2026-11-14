@@ -10,70 +10,75 @@ import MealPlan from "./components/MealPlan";
 
 function App() {
 
-    // API recipes
     const [recipes, setRecipes] = useState([]);
 
-    // Search and category states
     const [searchTerm, setSearchTerm] = useState("");
     const [category, setCategory] = useState("All");
     const [categories, setCategories] = useState([]);
 
-    // Loading and error states
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
 
-    // Load personal meals from localStorage
     const [meals, setMeals] = useState(() => {
         const savedMeals = localStorage.getItem("myMeals");
         return savedMeals ? JSON.parse(savedMeals) : [];
     });
 
-    // Fetch recipes from TheMealDB
-    useEffect(() => {
+    // TheMealDB Recipes
+useEffect(() => {
 
-        async function fetchRecipes() {
+    async function fetchRecipes() {
 
-            setLoading(true);
-            setError("");
+        setLoading(true);
+        setError("");
 
-            try {
+        try {
 
-                let url;
+            let url;
 
-                if (category !== "All") {
-                    url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${encodeURIComponent(category)}`;
-                } else {
-                    url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${encodeURIComponent(searchTerm)}`;
-                }
+            if (category !== "All") {
 
-                const response = await fetch(url);
+                // Get recipes from the selected category
+                url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${encodeURIComponent(category)}`;
 
-                if (!response.ok) {
-                    throw new Error("Failed to fetch recipes");
-                }
+            } else if (searchTerm.trim() !== "") {
 
-                const data = await response.json();
+                // Search recipes by name
+                url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${encodeURIComponent(searchTerm.trim())}`;
 
-                setRecipes(data.meals || []);
+            } else {
 
-            } catch (error) {
-
-                setError(
-                    "We couldn't load recipes. Please try again later."
-                );
-
-            } finally {
-
-                setLoading(false);
+                // Show starter recipes when the app first opens
+                url = "https://www.themealdb.com/api/json/v1/1/search.php?f=a";
 
             }
+
+            const response = await fetch(url);
+
+            if (!response.ok) {
+                throw new Error("Failed to fetch recipes");
+            }
+
+            const data = await response.json();
+
+            setRecipes(data.meals || []);
+
+        } catch (error) {
+
+            setError("We couldn't load recipes. Please try again later.");
+
+        } finally {
+
+            setLoading(false);
+
         }
 
-        fetchRecipes();
+    }
 
-    }, [searchTerm, category]);
+    fetchRecipes();
 
-    // Fetch recipe categories
+}, [searchTerm, category]);
+
     useEffect(() => {
 
         async function fetchCategories() {
@@ -103,14 +108,12 @@ function App() {
 
     }, []);
 
-    // Save personal meals to localStorage
     useEffect(() => {
 
         localStorage.setItem("myMeals", JSON.stringify(meals));
 
     }, [meals]);
 
-    // Search recipes by name
     const filteredRecipes = recipes.filter((recipe) => {
 
         return recipe.strMeal
@@ -119,7 +122,6 @@ function App() {
 
     });
 
-    // Create or update a meal
     function handleSaveMeal(mealData) {
 
         if (mealData.id) {
@@ -145,7 +147,6 @@ function App() {
         }
     }
 
-    // Delete a personal meal
     function handleDeleteMeal(id) {
 
         setMeals((previousMeals) =>
@@ -200,7 +201,6 @@ function App() {
 
                 </section>
 
-                {/* Personal meals */}
                 <section>
 
                     <MealPlan

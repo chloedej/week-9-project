@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 
 function AddMealForm({ onSaveMeal, editingMeal, onCancel }) {
@@ -39,7 +40,7 @@ function AddMealForm({ onSaveMeal, editingMeal, onCancel }) {
 
         onSaveMeal({
             id: editingMeal ? editingMeal.id : null,
-            name,
+            name: name.trim(),
             category,
             day,
             servings: Number(servings)
@@ -48,56 +49,68 @@ function AddMealForm({ onSaveMeal, editingMeal, onCancel }) {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="meal-form" onSubmit={handleSubmit}>
 
             <h3>{editingMeal ? "Edit Meal" : "Add Your Own Meal"}</h3>
 
-            <input
-                type="text"
-                placeholder="Meal name"
-                value={name}
-                onChange={(event) => setName(event.target.value)}
-            />
+            <div className="meal-form-fields">
 
-            <select
-                value={category}
-                onChange={(event) => setCategory(event.target.value)}
-            >
-                <option>Breakfast</option>
-                <option>Lunch</option>
-                <option>Dinner</option>
-                <option>Snack</option>
-            </select>
+                <input
+                    className="meal-input"
+                    type="text"
+                    placeholder="Meal name"
+                    value={name}
+                    onChange={(event) => setName(event.target.value)}
+                />
 
-            <select
-                value={day}
-                onChange={(event) => setDay(event.target.value)}
-            >
-                <option>Monday</option>
-                <option>Tuesday</option>
-                <option>Wednesday</option>
-                <option>Thursday</option>
-                <option>Friday</option>
-                <option>Saturday</option>
-                <option>Sunday</option>
-            </select>
+                <select
+                    className="meal-select"
+                    value={category}
+                    onChange={(event) => setCategory(event.target.value)}
+                >
+                    <option>Breakfast</option>
+                    <option>Lunch</option>
+                    <option>Dinner</option>
+                    <option>Snack</option>
+                </select>
 
-            <input
-                type="number"
-                min="1"
-                value={servings}
-                onChange={(event) => setServings(event.target.value)}
-            />
+                <select
+                    className="meal-select"
+                    value={day}
+                    onChange={(event) => setDay(event.target.value)}
+                >
+                    <option>Monday</option>
+                    <option>Tuesday</option>
+                    <option>Wednesday</option>
+                    <option>Thursday</option>
+                    <option>Friday</option>
+                    <option>Saturday</option>
+                    <option>Sunday</option>
+                </select>
 
-            <button type="submit">
-                {editingMeal ? "Save Changes" : "Add Meal"}
-            </button>
+                <input
+                    className="servings-input"
+                    type="number"
+                    min="1"
+                    value={servings}
+                    onChange={(event) => setServings(event.target.value)}
+                />
 
-            {editingMeal && (
-                <button type="button" onClick={onCancel}>
-                    Cancel
+                <button className="add-meal-button" type="submit">
+                    {editingMeal ? "Save Changes" : "Add Meal"}
                 </button>
-            )}
+
+                {editingMeal && (
+                    <button
+                        className="cancel-button"
+                        type="button"
+                        onClick={onCancel}
+                    >
+                        Cancel
+                    </button>
+                )}
+
+            </div>
 
         </form>
     );

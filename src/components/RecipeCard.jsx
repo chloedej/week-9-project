@@ -1,16 +1,20 @@
 function RecipeCard({ recipe }) {
     return (
         <div className="recipe-card">
-
-            <img src={recipe.strMealThumb} 
-            alt={recipe.strMeal}
+            <img
+                src={recipe.strMealThumb}
+                alt={recipe.strMeal}
             />
 
             <h3>{recipe.strMeal}</h3>
 
-            <p>Category: {recipe.strCategory}</p>
+            <p>
+                Category: {recipe.strCategory || "See recipe"}
+            </p>
 
-            <p>Cuisine: {recipe.strArea}</p>
+            <p>
+                Cuisine: {recipe.strArea || "See recipe"}
+            </p>
 
             <p>
                 Recipe ID: {recipe.idMeal}
@@ -23,10 +27,8 @@ function RecipeCard({ recipe }) {
             >
                 View Recipe
             </a>
-
         </div>
     );
 }
-
 
 export default RecipeCard;
