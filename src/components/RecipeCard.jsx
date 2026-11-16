@@ -18,8 +18,6 @@ function RecipeCard({ recipe }) {
                 Cuisine: {recipe.strArea || "See recipe"}
             </p>
 
-            <p>Recipe ID: {recipe.idMeal}</p>
-
             <a
                 href={`https://www.themealdb.com/meal/${recipe.idMeal}`}
                 target="_blank"

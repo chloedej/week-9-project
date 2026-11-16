@@ -2,7 +2,7 @@ function SearchBar({ searchTerm, setSearchTerm }) {
 
     return (
         <input
-            className="recipe-search"
+            className="search-bar"
             type="text"
             placeholder="Search for a recipe..."
             value={searchTerm}

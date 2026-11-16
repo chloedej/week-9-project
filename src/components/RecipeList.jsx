@@ -1,10 +1,8 @@
 import RecipeCard from "./RecipeCard";
 
 function RecipeList({ recipes }) {
-    
-    function RecipeList({ recipes }) {
 
-        if(recipe.length === 0) {
+        if(recipes.length === 0) {
             return <p>No recipes found. Try another search!</p>
         }
 
@@ -19,6 +17,6 @@ function RecipeList({ recipes }) {
     </div>
 
     );
-}}
+}
 
 export default RecipeList 

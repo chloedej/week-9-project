@@ -21,10 +21,6 @@ header {
     padding: 30px;
 }
 
-header h1 {
-    color: white;
-}
-
 main {
     max-width: 1100px;
     min-height: 400px;
@@ -341,3 +337,152 @@ footer {
     padding: 20px;
     margin-top: 40px;
 }
+h1 {
+    text-align: center;
+    font-size: 42px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+/* Center the search bar */
+.search-bar {
+    display: block;
+    width: 400px;
+    max-width: 90%;
+    padding: 12px;
+    margin: 20px auto 40px auto;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+/* Buttons */
+button {
+    background-color: #EABFCB;
+    color: #3D2932;
+    border: 2px solid #C191A1;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #C191A1;
+    color: white;
+}
+
+.search-bar {
+    background-color: #EABFCB !important;
+    color: #3D2932;
+    border: 2px solid #C191A1;
+}
+
+button {
+    background-color: #EABFCB;
+    color: #3D2932;
+    border: 2px solid #C191A1;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #C191A1;
+    color: white;
+}
+
+/* Meal planner buttons */
+button {
+    background-color: #EABFCB;
+    color: #3D2932;
+    border: 2px solid #C191A1;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Hover effect */
+button:hover {
+    background-color: #C191A1;
+    color: white;
+}
+/* Add Meal button */
+.add-meal-button {
+    background-color: #EABFCB;
+    color: #3D2932;
+    border: 2px solid #C191A1;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Add Meal button hover */
+.add-meal-button:hover {
+    background-color: #C191A1;
+    color: white;
+}
+
+/* Cancel button */
+.cancel-button {
+    background-color: #EABFCB;
+    color: #3D2932;
+    border: 2px solid #C191A1;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Cancel button hover */
+.cancel-button:hover {
+    background-color: #C191A1;
+    color: white;
+}
+/* Recipe Planner pink form fields */
+.meal-input,
+.meal-select,
+.servings-input {
+    background-color: #EABFCB;
+    color: #3D2932;
+    border: 2px solid #C191A1;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 15px;
+}
+
+/* Dropdown options */
+.meal-select option {
+    background-color: #EABFCB;
+    color: #3D2932;
+}
+
+/* Change the outline when clicking a field */
+.meal-input:focus,
+.meal-select:focus,
+.servings-input:focus {
+    outline: 2px solid #C191A1;
+    border-color: #C191A1;
+}
+/* Pretty, simple font for the entire app */
+body {
+    font-family: 'Quicksand', sans-serif;
+}
+
+/* Headings */
+h1,
+h2,
+h3 {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+}
+
+/* Paragraphs and form fields */
+p,
+input,
+select,
+button {
+    font-family: 'Quicksand', sans-serif;
+  }
