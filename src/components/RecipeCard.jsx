@@ -1,6 +1,8 @@
 function RecipeCard({ recipe }) {
+
     return (
         <div className="recipe-card">
+
             <img
                 src={recipe.strMealThumb}
                 alt={recipe.strMeal}
@@ -16,9 +18,7 @@ function RecipeCard({ recipe }) {
                 Cuisine: {recipe.strArea || "See recipe"}
             </p>
 
-            <p>
-                Recipe ID: {recipe.idMeal}
-            </p>
+            <p>Recipe ID: {recipe.idMeal}</p>
 
             <a
                 href={`https://www.themealdb.com/meal/${recipe.idMeal}`}
@@ -27,6 +27,7 @@ function RecipeCard({ recipe }) {
             >
                 View Recipe
             </a>
+
         </div>
     );
 }
