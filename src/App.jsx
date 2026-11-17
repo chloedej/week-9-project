@@ -7,7 +7,6 @@ import RecipeList from './components/RecipeList';
 import MealPlan from './components/MealPlan';
 
 function App() {
-  // Search state
   const [searchTerm, setSearchTerm] = useState("");
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -48,12 +47,12 @@ function App() {
     fetchRecipes();
   }, [searchTerm]);
 
-  // Save meals whenever the meals state changes
+  // Save meals whenever state changes
   useEffect(() => {
     localStorage.setItem("myMeals", JSON.stringify(meals));
   }, [meals]);
 
-  // Add a new meal or update an existing meal
+  // Add/Update meal
   function handleSaveMeal(meal) {
     if (meal.id) {
       setMeals((previousMeals) =>
@@ -69,7 +68,6 @@ function App() {
     }
   }
 
-  // Delete a meal
   function handleDeleteMeal(id) {
     setMeals((previousMeals) =>
       previousMeals.filter((meal) => meal.id !== id)
@@ -88,25 +86,22 @@ return (
                 few meals for a stress free week!
             </p>
 
-            {/* Search bar */}
             <SearchBar
                 searchTerm={searchTerm}
                 setSearchTerm={setSearchTerm}
             />
 
-            {/* Search results directly below search bar */}
             <h2>Search Results</h2>
 
             {loading && <p>Loading recipes...</p>}
 
             <RecipeList recipes={recipes} />
-
-            {/* Meal planner below search results */}
-            <MealPlan
-                meals={meals}
-                onSaveMeal={handleSaveMeal}
-                onDeleteMeal={handleDeleteMeal}
-            />
+           <MealPlan
+              meals={meals}
+              onSaveMeal={handleSaveMeal}
+              onDelete={handleDeleteMeal}
+              recipes={recipes}
+      />
         </main>
 
         <Footer />

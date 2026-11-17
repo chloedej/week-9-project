@@ -4,7 +4,7 @@ import Stats from "./Stats";
 import AddMealForm from "./AddMealForm";
 import MealPlanCard from "./MealPlanCard";
 
-function MealPlan({ meals, onSaveMeal, onDelete }) {
+function MealPlan({ meals, onSaveMeal, onDelete, recipes = [] }) {
 
     const [editingMeal, setEditingMeal] = useState(null);
 
@@ -28,6 +28,7 @@ function MealPlan({ meals, onSaveMeal, onDelete }) {
                 onSaveMeal={handleSave}
                 editingMeal={editingMeal}
                 onCancel={() => setEditingMeal(null)}
+                recipes={recipes}
             />
 
             {meals.length === 0 ? (

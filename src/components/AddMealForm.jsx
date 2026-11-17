@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 
-function AddMealForm({ onSaveMeal, editingMeal, onCancel }) {
+function AddMealForm({ onSaveMeal, editingMeal, onCancel, recipes = [] }) {
 
     const [name, setName] = useState("");
     const [category, setCategory] = useState("Breakfast");
@@ -55,13 +55,23 @@ function AddMealForm({ onSaveMeal, editingMeal, onCancel }) {
 
             <div className="meal-form-fields">
 
-                <input
-                    className="meal-input"
-                    type="text"
-                    placeholder="Meal name"
-                    value={name}
-                    onChange={(event) => setName(event.target.value)}
-                />
+              <input
+    className="meal-input"
+    type="text"
+    list="recipe-options"
+    placeholder="Choose a recipe or enter your own..."
+    value={name}
+    onChange={(event) => setName(event.target.value)}
+/>
+
+<datalist id="recipe-options">
+    {recipes.map((recipe) => (
+        <option
+            key={recipe.idMeal}
+            value={recipe.strMeal}
+        />
+    ))}
+</datalist>
 
                 <select
                     className="meal-select"
